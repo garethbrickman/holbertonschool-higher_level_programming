@@ -13,7 +13,7 @@ elif number < 0:
     elif (posnumber % 10) > 5:
         print('Last digit of {} is {} and is greater than 5'
               .format(number, posnumber % 10))
-    elif (number % 10) < 6:
+    elif (posnumber % 10) < 6:
         print('Last digit of {} is {} and is less than 6 and not 0'
               .format(number, posnumber % 10))
 
