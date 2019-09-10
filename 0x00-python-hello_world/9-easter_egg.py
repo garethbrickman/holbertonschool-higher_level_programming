@@ -1,2 +1,2 @@
-#!/bin/bash
-python -c "import this"
+#!/usr/bin/python3
+import this
