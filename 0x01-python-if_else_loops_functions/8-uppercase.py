@@ -1,15 +1,12 @@
 #!/usr/bin/python3
 def uppercase(str):
-    strup = ''  # Define variable to store uppercase change
-
-    for i in range(len(str)):  # Loop through string in range of length
-
-        if(str[i] >= 'a' and str[i] <= 'z'):  # Lowercase check
-            strup = strup + chr((ord(str[i]) - 32))  # Uppercase change
-
+    strup = ''
+    for i in range(len(str)):
+        if(str[i] >= 'a' and str[i] <= 'z'):
+            strup = strup + chr((ord(str[i]) - 32))
             if(len(strup) != len(str)):
-                pass  # Skip printing until loop is fully complete
+                pass
             else:
                 print(strup)
         else:
-            strup = strup + str[i]  # Includes existing uppercase
+            strup = strup + str[i]
