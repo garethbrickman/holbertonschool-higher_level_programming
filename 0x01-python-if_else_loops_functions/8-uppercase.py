@@ -7,7 +7,7 @@ def uppercase(str):
             if(len(strup) != len(str)):
                 pass
             else:
-                print(strup)
+                print(("{}").format(strup))
         else:
             strup = strup + str[i]
 
