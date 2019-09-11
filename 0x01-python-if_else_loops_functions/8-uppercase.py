@@ -10,3 +10,4 @@ def uppercase(str):
                 print(strup)
         else:
             strup = strup + str[i]
+
