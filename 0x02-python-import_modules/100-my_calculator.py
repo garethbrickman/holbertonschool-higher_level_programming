@@ -15,7 +15,6 @@ if __name__ == '__main__':
     if user_op not in ops:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
-
     if user_op == '+':
         print("{:d} {} {:d} = {:d}".format(a, user_op, b, add(a, b)))
     if user_op == '-':
