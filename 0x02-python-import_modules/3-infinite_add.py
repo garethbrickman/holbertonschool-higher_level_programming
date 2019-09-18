@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 if __name__ == '__main__':
-    import sys
-
-    def infadd(*argv):
-        total = 0
-        for arg in argv:
-            total += int(arg)
-            print(total)
+    from sys import argv
+    sum = 0
+    for arg in range(1, len(argv)):
+        sum += int(argv[arg])
+    print(sum)
