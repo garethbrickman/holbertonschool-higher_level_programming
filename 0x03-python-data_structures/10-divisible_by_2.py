@@ -4,9 +4,9 @@ def divisible_by_2(my_list=[]):
         return
     new_list1 = my_list.copy()
     for i in range(len(new_list1)):
-        if new_list1[i] == 0:
-            new_list1[i] = True
-        elif (abs(new_list1[i]) % 2) == 0:
+#        if new_list1[i] == 0:
+#            new_list1[i] = True
+        if (abs(new_list1[i]) % 2) == 0:
             new_list1[i] = True
         else:
             new_list1[i] = False
