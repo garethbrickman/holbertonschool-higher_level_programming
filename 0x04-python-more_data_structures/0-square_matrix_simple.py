@@ -7,3 +7,4 @@ def square_matrix_simple(matrix=[]):
             squared.append(matrix[x][y] ** 2)
         squared2.append(squared)
     return squared2
+# [[x**2 for x in row] for row in matrix]
