@@ -4,8 +4,8 @@ class Square:
     def __init__(self, size=0, position=(0, 0)):
         """Instantiation with optional size (must be int and >= 0)
         and position"""
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -13,14 +13,14 @@ class Square:
         return self.__size
 
     @size.setter
-    def size(self, size):
+    def size(self, value):
         """Setter"""
-        if isinstance(size, int) is not True:
+        if isinstance(value, int) is not True:
             raise TypeError("size must be an integer")
-        elif size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
         else:
-            self.__size = size
+            self.__size = value
 
     @property
     def position(self):
@@ -28,21 +28,21 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(self, position):
+    def position(self, value):
         """Setter"""
-        if type(position) is not tuple:
+        if type(value) is not tuple:
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif len(position) is not 2:
+        elif len(value) is not 2:
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif isinstance(position[0], int) is not True:
+        elif not isinstance(value[0], int):
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif isinstance(position[1], int) is not True:
+        elif not isinstance(value[1], int):
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif position[0] < 0:
+        elif value[0] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif position[1] < 0:
+        elif value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = position
+        self.__position = value
 
     def area(self):
         """Returns current square area"""
