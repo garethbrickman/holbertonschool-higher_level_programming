@@ -15,13 +15,16 @@ def text_indentation(text):
 
     newtext = ""
     delims = ".?:"
+    space = " "
 
-    for i in text:
+    for i in range(len(text)):
         newtext += text[i]
+        if text[i] in space:
+            if text[i-1] in delims:
+                continue
         if text[i] in delims:
             newtext += "\n\n"
-    print(newtext, end="")
-
+    print(newtext)
 
     # indent1 = text.split(':')
     # indent2 = ':\n\n'.join(indent1)
