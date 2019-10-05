@@ -13,6 +13,9 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
+    if text is "":
+        raise TypeError("text must be a string")
+
     newtext = ""
     delims = ".?:"
     space = " "
