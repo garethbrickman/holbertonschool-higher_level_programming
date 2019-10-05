@@ -21,10 +21,10 @@ def text_indentation(text):
     space = " "
 
     for i in range(len(text)):
-        newtext += text[i]
         if text[i] in space:
             if text[i-1] in delims:
                 continue
+        newtext += text[i]
         if text[i] in delims:
             newtext += "\n\n"
     print(newtext)
