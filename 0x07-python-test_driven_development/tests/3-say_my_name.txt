@@ -15,9 +15,9 @@ This is a doctext file
     >>> say_my_name("", "")
     Traceback (most recent call last):
     ...
-    TypeError: You must enter a string for either first_name or last_name
+    TypeError: You must enter a string for first_name or last_name
 
     >>> say_my_name(" ", " ")
     Traceback (most recent call last):
     ...
-    TypeError: You must enter a string for either first_name or last_name
+    TypeError: You must enter a string for first_name or last_name
