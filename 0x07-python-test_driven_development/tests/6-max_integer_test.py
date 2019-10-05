@@ -26,3 +26,27 @@ class TestMaxInteger(unittest.TestCase):
     def test_int_list(self):
         self.intlist = [2, 3.3, 4]
         self.assertEqual(all(isinstance(x, int) for x in self.intlist), False)
+
+    def test_builtin_max(self):
+        self.toughlist = [90, 2, 13, 34, 5, -13, 3]
+        self.assertEqual(max_integer(self.toughlist), max(self.toughlist))
+
+    def test_max_first(self):
+        self.firstlist = [90, 2, 13, 34, 5, -13, 3]
+        self.assertEqual(max_integer(self.firstlist), max(self.firstlist))
+
+    def test_one_neg(self):
+        self.toughlist = [1, 90, 2, 13, 34, 5, -13, 3]
+        self.assertEqual(max_integer(self.toughlist), max(self.toughlist))
+
+    def test_only_negs(self):
+        self.toughlist = [-1, -2, -3, -13, -4]
+        self.assertEqual(max_integer(self.toughlist), max(self.toughlist))
+
+    def test_one_list(self):
+        self.onelist = [13]
+        self.assertEqual(max_integer(self.onelist), max(self.onelist))
+
+    def test_max_end(self):
+        self.onelist = [1, 2, 3, 4, 13]
+        self.assertEqual(max_integer(self.onelist), max(self.onelist))
