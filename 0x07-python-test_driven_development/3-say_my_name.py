@@ -16,5 +16,7 @@ def say_my_name(first_name, last_name=""):
         raise TypeError("last_name must be a string")
     if first_name is "" and last_name is "":
         raise TypeError("You must enter a string for first_name or last_name")
+    if first_name is " " and last_name is " ":
+        raise TypeError("You must enter a string for first_name or last_name")
 
     print("My name is {} {}".format(first_name, last_name))
