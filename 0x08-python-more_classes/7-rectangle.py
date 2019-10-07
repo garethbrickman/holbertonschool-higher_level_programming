@@ -10,6 +10,7 @@ class Rectangle:
     """Defines a rectangle"""
 
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Instantiation with optional width & height (must be int and >= 0)
@@ -64,7 +65,7 @@ class Rectangle:
 
     def __str__(self):
         """Returns print rectangle as object readable"""
-        return "\n".join(["#"*self.width] * self.height)
+        return "\n".join([str(self.print_symbol)*self.width] * self.height)
 
     def __repr__(self):
         """Returns print rectangle as reproduced object"""

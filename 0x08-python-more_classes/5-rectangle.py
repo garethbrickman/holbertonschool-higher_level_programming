@@ -5,6 +5,7 @@
 
 """
 
+
 class Rectangle:
     """Defines a rectangle"""
     def __init__(self, width=0, height=0):
@@ -67,4 +68,4 @@ class Rectangle:
 
     def __del__(self):
         """Prints msg when instance of Rectangle is deleted"""
-        print ("Bye rectangle...")
+        print("Bye rectangle...")
