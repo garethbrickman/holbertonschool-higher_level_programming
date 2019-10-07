@@ -56,3 +56,11 @@ class Square:
             for y in range(self.__size):
                     print("#", end="")
             print()
+
+    def __str__(self):
+        """Returns print square as object readable"""
+        return (
+            "\n"*self.position[1] +
+            " " * self.position[0] +
+            "#" * self.size
+            )
