@@ -60,4 +60,9 @@ class Rectangle:
 
     def __str__(self):
         """Returns loop instructions to print rectangle"""
-        return "\n".join(["#"*self.width] * self.height)
+        if self.width == 0:
+            return ""
+        elif self.height == 0:
+            return ""
+        else:
+            return "\n".join(["#"*self.width] * self.height)
