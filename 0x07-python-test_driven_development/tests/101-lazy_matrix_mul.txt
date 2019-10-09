@@ -1,0 +1,13 @@
+This is a doctext file
+
+    >>> lmm = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+    >>> lmm((1, 2), [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list
+
+    >>> lmm([[3, 4], [5, 6]], (1, 2))
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list
