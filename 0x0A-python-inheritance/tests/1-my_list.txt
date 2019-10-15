@@ -1,0 +1,10 @@
+This is a doctest file
+     >>> ml = __import__('1-my_list').MyList
+
+     >>> list = [1, 4, 2, 3, 5]
+     >>> ml(list)
+     [1, 4, 2, 3, 5]
+
+     >>> list = [1, 4, 2, 3, 5]
+     >>> ml.print_sorted(list)
+     [1, 2, 3, 4, 5]
