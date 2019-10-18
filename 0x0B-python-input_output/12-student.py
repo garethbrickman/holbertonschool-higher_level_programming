@@ -16,5 +16,11 @@ class Student:
     def to_json(self, attrs=None):
         """ Makes dict representation
         """
+        dict2 = {}
         x = vars(self)
-        return x
+        if attrs is None:
+            return x
+        for key, val in x.items():
+            if key in attrs:
+                dict2[key] = val
+        return dict2
