@@ -16,7 +16,19 @@ class Student:
     def to_json(self, attrs=None):
         """ Makes dict representation
         """
+        dict2 = {}
         x = vars(self)
-        return x
+        if attrs is None:
+            return x
+        for key, val in x.items():
+            if key in attrs:
+                dict2[key] = val
+        return dict2
 
     def reload_from_json(self, json):
+        """ Replaces all attributes of the Student instance
+        """
+        attrs = "first_name, last_name, age"
+        for key, val in json.items():
+            if key in attrs:
+                    setattr(self, key, val)
