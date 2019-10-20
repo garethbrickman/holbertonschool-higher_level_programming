@@ -17,7 +17,38 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    width = property(operator.attrgetter('__width'))
+    def area(self):
+        """ Returns area of instance
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """ Prints with # to stdout
+        """
+        if self.__height == 0 or self.__width == 0:
+            print()
+        else:
+            for y in range(self.__y):
+                print()
+            for i in range(self.__height):
+                for x in range(self.__x):
+                    print(" ", end="")
+                for j in range(self.__width):
+                    print("#", end="")
+                print()
+
+        # print("\n".join(["#"*self.__width] * self.__height))
+
+    def __str__(self):
+        """ Updates class Rectangle
+        """
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height)
+
+    """ Getters and Setters
+    """
+
+    width = property(operator.attrgetter('width'))
 
     @width.setter
     def width(self, v):
@@ -27,7 +58,7 @@ class Rectangle(Base):
         if v <= 0: raise ValueError("width must be > 0")
         self.__width = v
 
-    height = property(operator.attrgetter('__height'))
+    height = property(operator.attrgetter('height'))
 
     @height.setter
     def height(self, v):
@@ -37,7 +68,7 @@ class Rectangle(Base):
         if v <= 0: raise ValueError("height must be > 0")
         self.__height = v
 
-    x = property(operator.attrgetter('__x'))
+    x = property(operator.attrgetter('x'))
 
     @x.setter
     def x(self, v):
@@ -47,7 +78,7 @@ class Rectangle(Base):
         if v < 0: raise ValueError("x must be >= 0")
         self.__x = v
 
-    y = property(operator.attrgetter('__x'))
+    y = property(operator.attrgetter('y'))
 
     @y.setter
     def y(self, v):

@@ -16,3 +16,9 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @classmethod
+    def _reset_nb_objects(cls):
+        """ For testing only, hook in setUp to reset class-level id num
+        """
+        cls.__nb_objects = 0
