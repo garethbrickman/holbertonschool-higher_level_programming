@@ -3,14 +3,14 @@
 """
 import unittest
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
     """ Class for testing Rectangle
     """
     def setUp(self):
-        Rectangle.__nb_objects = 0
-        # Rectangle._reset_nb_objects()
+        Base._reset_nb_objects()
 
     def test_rec_id_first(self):
         """ Tests first id assignment
