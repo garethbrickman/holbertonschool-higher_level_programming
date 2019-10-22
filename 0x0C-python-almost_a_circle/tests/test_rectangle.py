@@ -28,6 +28,8 @@ class TestRectangle(unittest.TestCase):
     """ Tests area method
     """
     def test_area_meth(self):
+        """ Tests if area method works
+        """
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
 
@@ -97,6 +99,8 @@ class TestRectangle(unittest.TestCase):
     """ Tests for id/nb_objects
     """
     def setUp(self):
+        """ Setup tests
+        """
         Base._reset_nb_objects()
 
     def test_rec_id_first(self):

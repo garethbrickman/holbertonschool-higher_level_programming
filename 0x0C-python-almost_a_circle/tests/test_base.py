@@ -9,6 +9,8 @@ class Test(unittest.TestCase):
     """ Class for testing Base
     """
     def setUp(self):
+        """ Setup tests
+        """
         Base._reset_nb_objects()
 
     def test_id_assignment(self):
