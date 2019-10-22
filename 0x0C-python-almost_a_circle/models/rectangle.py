@@ -2,7 +2,6 @@
 """ Rectangle class module
 """
 from models.base import Base
-import operator
 
 class Rectangle(Base):
     """ Rectangle class
@@ -16,6 +15,37 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
+
+    def to_dictionary(self):
+        """ Makes dict representation
+        """
+        dictrep = {}
+        dictrep['id'] = self.id
+        dictrep['width'] = self.width
+        dictrep['height'] = self.height
+        dictrep['x'] = self.x
+        dictrep['y'] = self.y
+        return dictrep
+
+    def update(self, *args, **kwargs):
+        """ Assigns new arguments to each attribute
+        """
+        if len(args) > 0:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                if i == 1:
+                    self.width = arg
+                if i == 2:
+                    self.height = arg
+                if i == 3:
+                    self.x = arg
+                if i == 4:
+                    self.y = arg
+        else:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
 
     def area(self):
         """ Returns area of instance
