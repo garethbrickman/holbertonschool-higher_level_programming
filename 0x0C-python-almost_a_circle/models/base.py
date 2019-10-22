@@ -35,13 +35,16 @@ class Base:
         """
         import json
         string = "[]"
-        if len(list_dictionaries) < 1:
+        if len(list_dictionaries) < 1 or list_dictionaries is None:
             return string
-        for x in list_dictionaries:
-            if x is None:
-                return string
         else:
             return json.dumps(list_dictionaries)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Returns an instance with all attrs set
+        """
+        pass
 
     @classmethod
     def save_to_file(cls, list_objs):
