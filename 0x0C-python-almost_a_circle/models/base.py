@@ -34,15 +34,20 @@ class Base:
         """ Returns JSON string rep of list_dictionaries
         """
         import json
-        string = "[]"
-        if len(list_dictionaries) < 1 or list_dictionaries is None:
-            return string
+        if not list_dictionaries:
+            return ("[]")
         else:
             return json.dumps(list_dictionaries)
 
     @classmethod
     def create(cls, **dictionary):
         """ Returns an instance with all attrs set
+        """
+        pass
+
+    @classmethod
+    def load_from_file(cls):
+        """ Returns a list of instances
         """
         pass
 
