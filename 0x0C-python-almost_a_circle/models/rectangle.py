@@ -3,6 +3,7 @@
 """
 from models.base import Base
 
+
 class Rectangle(Base):
     """ Rectangle class
     """
@@ -88,8 +89,10 @@ class Rectangle(Base):
     def width(self, v):
         """ Setter
         """
-        if type(v) is not int: raise TypeError("width must be an integer")
-        if v <= 0: raise ValueError("width must be > 0")
+        if type(v) is not int:
+            raise TypeError("width must be an integer")
+        if v <= 0:
+            raise ValueError("width must be > 0")
         self.__width = v
 
     @property
@@ -102,8 +105,10 @@ class Rectangle(Base):
     def height(self, v):
         """ Setter
         """
-        if type(v) is not int: raise TypeError("height must be an integer")
-        if v <= 0: raise ValueError("height must be > 0")
+        if type(v) is not int:
+            raise TypeError("height must be an integer")
+        if v <= 0:
+            raise ValueError("height must be > 0")
         self.__height = v
 
     @property
@@ -116,8 +121,10 @@ class Rectangle(Base):
     def x(self, v):
         """ Setter
         """
-        if type(v) is not int: raise TypeError("x must be an integer")
-        if v < 0: raise ValueError("x must be >= 0")
+        if type(v) is not int:
+            raise TypeError("x must be an integer")
+        if v < 0:
+            raise ValueError("x must be >= 0")
         self.__x = v
 
     @property
@@ -130,6 +137,8 @@ class Rectangle(Base):
     def y(self, v):
         """ Setter
         """
-        if type(v) is not int: raise TypeError("y must be an integer")
-        if v < 0: raise ValueError("y must be >= 0")
+        if type(v) is not int:
+            raise TypeError("y must be an integer")
+        if v < 0:
+            raise ValueError("y must be >= 0")
         self.__y = v

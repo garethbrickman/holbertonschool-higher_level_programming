@@ -3,6 +3,7 @@
 """
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """ Rectangle class
     """
@@ -61,7 +62,9 @@ class Square(Rectangle):
     def size(self, v):
         """ Setter
         """
-        if type(v) is not int: raise TypeError("width must be an integer")
-        if v <= 0: raise ValueError("width must be > 0")
+        if type(v) is not int:
+            raise TypeError("width must be an integer")
+        if v <= 0:
+            raise ValueError("width must be > 0")
         self.__width = v
         self.__height = v

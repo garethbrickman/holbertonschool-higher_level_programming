@@ -122,7 +122,7 @@ class TestRectangle(unittest.TestCase):
     def test_rec_id_reverts(self):
         """ Tests if id increment reverts after override
         """
-        r1 = Rectangle (2, 10)
+        r1 = Rectangle(2, 10)
         r2 = Rectangle(2, 10)
         r3 = Rectangle(10, 2, 0, 0, 12)
         r4 = Rectangle(9, 3)
