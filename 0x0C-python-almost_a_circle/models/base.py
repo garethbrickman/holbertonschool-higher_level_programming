@@ -43,7 +43,8 @@ class Base:
     def create(cls, **dictionary):
         """ Returns an instance with all attrs set
         """
-        pass
+        dummy = cls(width=1, height=1, x=0, y=0, id=None)
+        return(dummy.update(**dictionary))
 
     @classmethod
     def load_from_file(cls):
@@ -55,13 +56,22 @@ class Base:
     def save_to_file(cls, list_objs):
         """ Writes JSON string rep of list_objs to file
         """
-        import json
         filename = cls.__name__
         dictlist = []
+        dictlist2 = []
         for x in list_objs:
             dictlist.append(vars(x))
         with open("{}.json".format(filename), mode='w', encoding='utf-8') as f:
-            f.write(Base.to_json_string(dictlist))
+            newf = (Base.to_json_string(dictlist))
+            newf = (newf.replace('_Rectangle__', ''))
+            f.write(newf)
+        # filename = cls.__name__
+        # dictlist = []
+        # dictlist2 = []
+        # for x in list_objs:
+        #     dictlist.append(vars(x))
+        # with open("{}.json".format(filename), mode='w', encoding='utf-8') as
+        #     f.write(Base.to_json_string(dictlist))
 
     @classmethod
     def _reset_nb_objects(cls):
