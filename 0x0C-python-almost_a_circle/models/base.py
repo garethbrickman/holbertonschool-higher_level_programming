@@ -56,18 +56,20 @@ class Base:
     def save_to_file(cls, list_objs):
         """ Writes JSON string rep of list_objs to file
         """
-        filename = cls.__name__
+        fm = cls.__name__
+        empty = []
         dictlist = []
         dictlist2 = []
         if not list_objs:
-            return dictlist
+            with open("{}.json".format(fm), mode='w', encoding='utf-8') as f:
+                f.write(Base.to_json_string(empty))
         else:
             for x in list_objs:
                 dictlist.append(vars(x))
-        with open("{}.json".format(filename), mode='w', encoding='utf-8') as f:
-            newf = (Base.to_json_string(dictlist))
-            newf = (newf.replace('_Rectangle__', ''))
-            f.write(newf)
+            with open("{}.json".format(fm), mode='w', encoding='utf-8') as f:
+                newf = (Base.to_json_string(dictlist))
+                newf = (newf.replace('_Rectangle__', ''))
+                f.write(newf)
         # filename = cls.__name__
         # dictlist = []
         # dictlist2 = []
