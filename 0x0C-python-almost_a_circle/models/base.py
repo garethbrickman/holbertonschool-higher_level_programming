@@ -18,6 +18,18 @@ class Base:
             self.id = Base.__nb_objects
 
     @staticmethod
+    def from_json_string(json_string):
+        """ Returns list of JSON string rep
+        """
+        from json import loads as l
+        newlist = []
+        if json_string is None or len(json_string) < 1:
+            return newlist
+        else:
+            newlist = l(json_string)
+            return newlist
+
+    @staticmethod
     def to_json_string(list_dictionaries):
         """ Returns JSON string rep of list_dictionaries
         """
