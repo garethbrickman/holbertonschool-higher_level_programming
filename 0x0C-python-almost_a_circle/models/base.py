@@ -22,7 +22,11 @@ class Base:
         """ Returns JSON string rep of list_dictionaries
         """
         import json
-        return json.dumps(list_dictionaries)
+        string = "\"[]\""
+        if list_dictionaries is None:
+            return string
+        else:
+            return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -35,20 +39,6 @@ class Base:
             dictlist.append(vars(x))
         with open("{}.json".format(filename), mode='w', encoding='utf-8') as f:
             f.write(Base.to_json_string(dictlist))
-
-    # @classmethod
-    # def save_to_file(cls, list_objs):
-    #     """ Writes JSON string rep of list_objs to file
-    #     """
-    #     import json
-    #     dictlist = []
-    #     filename = cls.__name__
-    #     a = vars(list_objs[0])
-    #     b = vars(list_objs[1])
-    #     dictlist.append(a)
-    #     dictlist.append(b)
-    #     with open("{}.json".format(filename), mode='w', encoding='utf-8') as f:
-    #         f.write(Base.to_json_string(dictlist))
 
     @classmethod
     def _reset_nb_objects(cls):
