@@ -22,9 +22,12 @@ class Base:
         """ Returns JSON string rep of list_dictionaries
         """
         import json
-        string = "\"[]\""
-        if list_dictionaries is None:
+        string = "[]"
+        if len(list_dictionaries) < 1:
             return string
+        for x in list_dictionaries:
+            if x is None:
+                return string
         else:
             return json.dumps(list_dictionaries)
 
