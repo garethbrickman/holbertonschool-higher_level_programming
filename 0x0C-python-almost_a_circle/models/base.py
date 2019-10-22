@@ -59,8 +59,11 @@ class Base:
         filename = cls.__name__
         dictlist = []
         dictlist2 = []
-        for x in list_objs:
-            dictlist.append(vars(x))
+        if not list_objs:
+            return dictlist
+        else:
+            for x in list_objs:
+                dictlist.append(vars(x))
         with open("{}.json".format(filename), mode='w', encoding='utf-8') as f:
             newf = (Base.to_json_string(dictlist))
             newf = (newf.replace('_Rectangle__', ''))
