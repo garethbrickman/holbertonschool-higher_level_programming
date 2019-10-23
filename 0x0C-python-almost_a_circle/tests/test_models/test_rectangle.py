@@ -15,6 +15,64 @@ class TestRectangle(unittest.TestCase):
         """
         Base._reset_nb_objects()
 
+    """ Tests attribute updates
+    """
+    def test_args_update(self):
+        """ Tests if args update method works
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Rectangle] (89) 10/10 - 2/10\n')
+
+    def test_tricky_args__update(self):
+        """ Tests if tricky args update method works
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2, 3, 4, 5)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Rectangle] (89) 4/5 - 2/3\n')
+
+    def test_kwargs_update(self):
+        """ Tests if kwargs update method works
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(height=1)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Rectangle] (1) 10/10 - 10/1\n')
+
+    def test_tricky_kwargs_update(self):
+        """ Tests if tricky kwargs update method works
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(x=1, height=2, y=3, width=4, id=89)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Rectangle] (89) 1/3 - 4/2\n')
+
     """ Tests print output
     """
     def test_basic_print(self):

@@ -15,6 +15,64 @@ class TestSquare(unittest.TestCase):
         """
         Base._reset_nb_objects()
 
+    """ Tests attribute updates
+    """
+    def test_args_update(self):
+        """ Tests if args update method works
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Square(5)
+        r1.update(10)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Square] (10) 0/0 - 5\n')
+
+    def test_tricky_args__update(self):
+        """ Tests if tricky args update method works
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Square(5)
+        r1.update(1, 2, 3, 4)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Square] (1) 3/4 - 2\n')
+
+    def test_kwargs_update(self):
+        """ Tests if kwargs update method works
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Square(5)
+        r1.update(size=7)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Square] (1) 0/0 - 7\n')
+
+    def test_tricky_kwargs_update(self):
+        """ Tests if tricky kwargs update method works
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Square(5)
+        r1.update(size=7, id=89, y=1, x=12)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Square] (89) 12/1 - 7\n')
+
     """ Tests print output
     """
     def test_basic_print(self):
