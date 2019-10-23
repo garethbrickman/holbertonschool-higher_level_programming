@@ -90,6 +90,12 @@ class Base:
         """
         pass
 
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ Draws all recs and squares
+        """
+        pass
+
     @classmethod
     def _reset_nb_objects(cls):
         """ For testing only, hook in setUp to reset class-level id num
