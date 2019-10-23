@@ -73,6 +73,24 @@ class Base:
                 f.write(newf)
 
     @classmethod
+    def load_from_file(cls):
+        """ Returns list of instances
+        """
+        pass
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Serializes to csv
+        """
+        pass
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Deserializes from csv
+        """
+        pass
+
+    @classmethod
     def _reset_nb_objects(cls):
         """ For testing only, hook in setUp to reset class-level id num
         """
