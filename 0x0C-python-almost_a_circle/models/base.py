@@ -19,7 +19,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ Returns list of JSON string rep
+        """ Returns list of JSON string representation
         """
         from json import loads as l
         newlist = []
@@ -43,8 +43,9 @@ class Base:
     def create(cls, **dictionary):
         """ Returns an instance with all attrs set
         """
-        dummy = cls(width=1, height=1, x=0, y=0, id=None)
-        return(dummy.update(**dictionary))
+        dummy = cls(width=1, height=1, x=0, y=0)
+        dummy.update(**dictionary)
+        return dummy
 
     @classmethod
     def load_from_file(cls):
@@ -70,13 +71,6 @@ class Base:
                 newf = (Base.to_json_string(dictlist))
                 newf = (newf.replace('_Rectangle__', ''))
                 f.write(newf)
-        # filename = cls.__name__
-        # dictlist = []
-        # dictlist2 = []
-        # for x in list_objs:
-        #     dictlist.append(vars(x))
-        # with open("{}.json".format(filename), mode='w', encoding='utf-8') as
-        #     f.write(Base.to_json_string(dictlist))
 
     @classmethod
     def _reset_nb_objects(cls):
