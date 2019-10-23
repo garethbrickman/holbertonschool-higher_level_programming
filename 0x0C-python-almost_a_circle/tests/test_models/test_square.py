@@ -15,6 +15,31 @@ class TestSquare(unittest.TestCase):
         """
         Base._reset_nb_objects()
 
+    """ Tests dictionary to instance
+    """
+    # def test_dict_to_instance(self):
+    #     """ Tests if create method words
+    #     """
+    #     from io import StringIO
+    #     import io
+    #     import contextlib
+    #     r1 = Square(3)
+    #     r1_dictionary = r1.to_dictionary()
+    #     r2 = Square.create(**r1_dictionary)
+    #     temp_stdout = io.StringIO()
+    #     with contextlib.redirect_stdout(temp_stdout):
+    #         print(r2)
+    #     output = temp_stdout.getvalue()
+    #     self.assertEqual(output, '[Square] (1) 0/0 - 3\n')
+
+    # def test_dict_instance_bool(self):
+    #     """ Tests if bool is False
+    #     """
+    #     r1 = Square(3, 5, 1)
+    #     r1_dictionary = r1.to_dictionary()
+    #     r2 = Square.create(**r1_dictionary)
+    #     self.assertNotEqual(r1, r2)
+
     """ Tests dictionary methods
     """
     def test_to_dictionary(self):

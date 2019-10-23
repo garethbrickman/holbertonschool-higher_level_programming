@@ -15,6 +15,31 @@ class TestRectangle(unittest.TestCase):
         """
         Base._reset_nb_objects()
 
+    """ Tests dictionary to instance
+    """
+    def test_dict_to_instance(self):
+        """ Tests if create method words
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            print(r2)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Rectangle] (1) 1/0 - 3/5\n')
+
+    def test_dict_instance_bool(self):
+        """ Tests if bool is False
+        """
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
+
     """ Tests dictionary methods
     """
     def test_to_dictionary(self):
