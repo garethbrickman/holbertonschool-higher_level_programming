@@ -15,6 +15,17 @@ class TestSquare(unittest.TestCase):
         """
         Base._reset_nb_objects()
 
+    """ Tests dictionary methods
+    """
+    def test_to_dictionary(self):
+        """ Tests if to_dictionary works
+        """
+        r1 = Square(10, 2, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Square(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
+
     """ Tests attribute updates
     """
     def test_args_update(self):
