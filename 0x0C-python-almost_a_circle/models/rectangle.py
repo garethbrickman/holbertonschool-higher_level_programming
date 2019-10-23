@@ -74,8 +74,8 @@ class Rectangle(Base):
         """ Updates class Rectangle
         """
         return("[{}] ({}) {}/{} - {}/{}".format((self.__class__.__name__), self
-                                                .id, self.__x, self.__y, self._
-                                                _width, self.__height))
+                                                .id, self.__x, self.__y,
+                                                self.__width, self.__height))
 
     """ Getters and Setters
     """
