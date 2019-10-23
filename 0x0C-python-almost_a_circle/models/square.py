@@ -28,8 +28,8 @@ class Square(Rectangle):
         """ Updates class Square
         """
         return("[{}] ({}) {}/{} - {}".format((self.__class__.__name__),
-                                                self.id, self.x,
-                                                self.y, self.size))
+                                             self.id, self.x,
+                                             self.y, self.size))
 
     def update(self, *args, **kwargs):
         """ Assigns new arguments to each attribute
