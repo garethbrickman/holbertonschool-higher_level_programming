@@ -15,6 +15,47 @@ class TestRectangle(unittest.TestCase):
         """
         Base._reset_nb_objects()
 
+    """ Tests print output
+    """
+    def test_basic_print(self):
+        """ Tests if basic rectangle prints
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Rectangle(3, 1)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            r1.display()
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '###\n')
+
+    def test_x2y2_print(self):
+        """ Tests if x2y2 rectangle prints
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Rectangle(2, 3, 2, 2)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            r1.display()
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '\n\n  ##\n  ##\n  ##\n')
+
+    def test_x1y0_print(self):
+        """ Tests if x1y0 rectangle prints
+        """
+        from io import StringIO
+        import io
+        import contextlib
+        r1 = Rectangle(3, 2, 1, 0)
+        temp_stdout = io.StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            r1.display()
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, ' ###\n ###\n')
+
     """ Tests __str__
     """
     def test_str_override(self):
