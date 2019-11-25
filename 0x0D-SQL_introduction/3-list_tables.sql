@@ -1,3 +1,3 @@
 -- Lists all tables of database
-SHOW TABLES
-     {FROM} db_name;
+-- SET @v1=;
+SHOW TABLES FROM mysql;
