@@ -1,5 +1,5 @@
 -- Lists all cities found in db
-SELECT *
+SELECT id, name
 FROM cities
 WHERE state_id IN
       (SELECT id
