@@ -18,10 +18,11 @@ if __name__ == "__main__":
     ".format(argv[4]))
         query_rows = cur.fetchall()
         str2 = ""
-        for row in query_rows:
-            str = ''.join(row)
-            str2 += str + ', '
-            str3 = str2.rstrip(', ')
-        print(str3)
+        if len(query_rows) > 0:
+            for row in query_rows:
+                str = ''.join(row)
+                str2 += str + ', '
+                str3 = str2.rstrip(', ')
+            print(str3)
     cur.close()
     db.close()
