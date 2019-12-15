@@ -9,10 +9,11 @@ if __name__ == "__main__":
     # host="localhost"(default), port=3306(default)
     cur = db.cursor()
     string1 = "SELECT c.id, c.name, s.name FROM cities AS c"
-    string2 = "RIGHT JOIN states AS s ON s.id=c.state_id ORDER BY c.id ASC"
+    string2 = "RIGHT JOIN states AS s ON s.id = c.state_id ORDER BY c.id ASC"
     cur.execute("{} {}".format(string1, string2))
     query_rows = cur.fetchall()
-    for row in query_rows:
-        print(row)
+    if len(query_rows) > 0:
+        for row in query_rows:
+            print(row)
     cur.close()
     db.close()
