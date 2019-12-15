@@ -27,6 +27,7 @@ if __name__ == "__main__":
         query = session.query(State).order_by(State.id).first()
     except NoResultFound:
         print("Nothing")
+        print()
     else:
         print("{}: {}".format(query.id, query.name))
 
