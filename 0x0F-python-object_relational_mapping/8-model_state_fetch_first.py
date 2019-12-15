@@ -5,6 +5,7 @@ import sys
 from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm.exc import NoResultFound
 
 if __name__ == "__main__":
     """ Engine connection
@@ -24,9 +25,8 @@ if __name__ == "__main__":
     """
     try:
         query = session.query(State).order_by(State.id).first()
-    except:
+    except NoResultFound:
         print("Nothing")
-        print()
     else:
         print("{}: {}".format(query.id, query.name))
 
