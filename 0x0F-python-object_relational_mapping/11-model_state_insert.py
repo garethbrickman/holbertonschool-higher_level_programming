@@ -5,7 +5,6 @@ import sys
 from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.sql import exists
 
 if __name__ == "__main__":
     """ Engine connection
@@ -28,5 +27,5 @@ if __name__ == "__main__":
     query = session.query(State).filter_by(name='Louisiana')
     for row in query.all():
         print("{}".format(row.id))
-
+    session.commit()
     session.close()
