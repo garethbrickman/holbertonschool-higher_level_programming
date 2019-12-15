@@ -2,17 +2,18 @@
 """ Lists all states from databse hbtn_0e_0_usa with name """
 
 if __name__ == "__main__":
-    import MySQLdb
+    import MySQLdb as sdb
     from sys import argv
     # argv[1] = username, [2] = password, [3] = database, [4] = name
-    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
+    db = sdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
     # host="localhost"(default), port=3306(default)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name='{}' ORDER BY id ASC"
-                .format(argv[4]))
-    query_rows = cur.fetchall()
-    for row in query_rows:
-        if row[1][:] == argv[4]:
+    if not in "'" argv[4]:
+        cur.execute("SELECT * FROM states WHERE name='{}' ORDER BY id ASC"
+                    .format(argv[4]))
+        query_rows = cur.fetchall()
+        for row in query_rows:
+            # if row[1][:] == argv[4]:
             print(row)
     cur.close()
     db.close()
