@@ -8,19 +8,20 @@ if __name__ == "__main__":
     db = sdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
     # host="localhost"(default), port=3306(default)
     cur = db.cursor()
-    cur.execute("\
+    if "'" not in argv[4]:
+        cur.execute("\
     SELECT c.name FROM cities AS c\
     JOIN states AS s\
     ON s.id = c.state_id\
     WHERE s.name='{}'\
     ORDER BY c.id ASC\
     ".format(argv[4]))
-    query_rows = cur.fetchall()
-    str2 = ""
-    for row in query_rows:
-        str = ''.join(row)
-        str2 += str + ', '
-        str3 = str2.rstrip(', ')
-    print(str3)
+        query_rows = cur.fetchall()
+        str2 = ""
+        for row in query_rows:
+            str = ''.join(row)
+            str2 += str + ', '
+            str3 = str2.rstrip(', ')
+        print(str3)
     cur.close()
     db.close()
