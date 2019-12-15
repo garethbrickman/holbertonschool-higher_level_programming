@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Lists all states from databse hbtn_0e_0_usa starting with N """
+""" Lists all states from database hbtn_0e_0_usa starting with N """
 import MySQLdb
 from sys import argv
 
@@ -9,7 +9,7 @@ if __name__ == "__main__":
                          host="localhost", port=3306)
     # host="localhost"(default), port=3306(default)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;")
     query_rows = cur.fetchall()
     for row in query_rows:
         print('{}'.format(row))
