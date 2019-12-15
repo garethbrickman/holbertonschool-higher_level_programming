@@ -13,7 +13,7 @@ if __name__ == "__main__":
     query_rows = cur.fetchall()
     for row in query_rows:
         if row[1][:1] == "N":
-            print("({}, \'{}\')".format(row[0], row[1]))
+            print(row)
     cur.close()
     db.close()
 
