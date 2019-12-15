@@ -10,7 +10,7 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute("\
     SELECT c.id, c.name, s.name FROM cities AS c\
-    RIGHT JOIN states AS s\
+    JOIN states AS s\
     ON s.id = c.state_id\
     ORDER BY c.id ASC\
     ")
