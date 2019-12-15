@@ -17,12 +17,12 @@ if __name__ == "__main__":
     ORDER BY c.id ASC\
     ".format(argv[4]))
         query_rows = cur.fetchall()
-        str2 = ""
-        if len(query_rows) > 0:
-            for row in query_rows:
-                str = ''.join(row)
-                str2 += str + ', '
-                str3 = str2.rstrip(', ')
-            print(str3)
+        print(", ".join(row[0] for row in query_rows))
+        # str2 = ""
+        # for row in query_rows:
+        #     str = ''.join(row)
+        #     str2 += str + ', '
+        #     str3 = str2.rstrip(', ')
+        # print(str3)
     cur.close()
     db.close()
