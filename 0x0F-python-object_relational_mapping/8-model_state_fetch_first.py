@@ -22,9 +22,9 @@ if __name__ == "__main__":
 
     """ Query
     """
-
-    query = session.query(State).filter(State.id).first()
-    if not query:
+    try:
+        query = session.query(State).order_by(State.id).first()
+    except:
         print("Nothing")
         print()
     else:
