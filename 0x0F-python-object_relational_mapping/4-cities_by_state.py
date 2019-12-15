@@ -12,8 +12,8 @@ if __name__ == "__main__":
     string2 = "RIGHT JOIN states AS s ON s.id = c.state_id ORDER BY c.id ASC"
     cur.execute("{} {}".format(string1, string2))
     query_rows = cur.fetchall()
-    if len(query_rows) > 0:
-        for row in query_rows:
+    for row in query_rows:
+        if len(row) > 0:
             print(row)
     cur.close()
     db.close()
