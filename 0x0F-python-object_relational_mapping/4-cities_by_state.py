@@ -8,12 +8,14 @@ if __name__ == "__main__":
     db = sdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
     # host="localhost"(default), port=3306(default)
     cur = db.cursor()
-    string1 = "SELECT c.id, c.name, s.name FROM cities AS c"
-    string2 = "RIGHT JOIN states AS s ON s.id = c.state_id ORDER BY c.id ASC"
-    cur.execute("{} {}".format(string1, string2))
+    cur.execute("\
+    SELECT c.id, c.name, s.name FROM cities AS c\
+    RIGHT JOIN states AS s\
+    ON s.id = c.state_id\
+    ORDER BY c.id ASC\
+    ")
     query_rows = cur.fetchall()
     for row in query_rows:
-        if len(row) > 0:
-            print(row)
+        print(row)
     cur.close()
     db.close()
