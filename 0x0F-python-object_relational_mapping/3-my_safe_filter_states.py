@@ -8,7 +8,7 @@ if __name__ == "__main__":
     db = sdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
     # host="localhost"(default), port=3306(default)
     cur = db.cursor()
-    if not in "'" argv[4]:
+    if "'" not in argv[4]:
         cur.execute("SELECT * FROM states WHERE name='{}' ORDER BY id ASC"
                     .format(argv[4]))
         query_rows = cur.fetchall()
