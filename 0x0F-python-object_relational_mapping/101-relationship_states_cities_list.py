@@ -2,8 +2,8 @@
 """Lists all State objects and City objects in hbtn_0e_101_usa database
 """
 import sys
-from model_state import Base, State
-from model_city import City
+from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
@@ -15,9 +15,11 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    for city, state in session.query(City, State)\
-                              .filter(City.state_id == State.id)\
-                              .order_by(City.id.asc()).all():
+    result = session.query(State)\
+                    .filter(City.state_id == State.id)\
+                    .order_by(State.id.asc())
+    for state in result:
         print("{}: {}".format(state.id, state.name))
-        print("     {}: {}".format(city.id, city.name))
+        for city in state.cities:
+            print("     {}: {}".format(city.id, city.name))
     session.close()
