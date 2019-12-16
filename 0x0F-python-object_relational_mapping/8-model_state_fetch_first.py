@@ -28,11 +28,5 @@ if __name__ == "__main__":
         print("{}: {}".format(query.id, query.name))
     else:
         print("Nothing")
-        # try:
-        #     query = session.query(State).order_by(State.id).first()
-        # except NoResultFound:
-        #     print("Nothing")
-        # else:
-        #     print("{}: {}".format(query.id, query.name))
 
     session.close()
