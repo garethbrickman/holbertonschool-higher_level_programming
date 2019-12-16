@@ -23,12 +23,16 @@ if __name__ == "__main__":
 
     """ Query
     """
-    try:
-        query = session.query(State).order_by(State.id).first()
-    except NoResultFound:
-        print("Nothing")
-        print()
-    else:
+    query = session.query(State).order_by(State.id).first()
+    if query:
         print("{}: {}".format(query.id, query.name))
+    else:
+        print("Nothing")
+        # try:
+        #     query = session.query(State).order_by(State.id).first()
+        # except NoResultFound:
+        #     print("Nothing")
+        # else:
+        #     print("{}: {}".format(query.id, query.name))
 
     session.close()
