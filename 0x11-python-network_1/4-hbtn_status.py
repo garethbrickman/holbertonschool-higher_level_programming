@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-""" Fetches website info using urllib library
+""" Fetches website info using requests (must be installed)
 """
 if __name__ == "__main__":
-    from urllib import request
+    import requests
     print("Body response:")
-    with request.urlopen('https://intranet.hbtn.io/status') as response:
-        print("\t- type: {}".format(type(response.read().decode())))
-    with request.urlopen('https://intranet.hbtn.io/status') as response:
-        print("\t- content: {}".format(response.read().decode()))
+    r = requests.get('https://intranet.hbtn.io/status')
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
