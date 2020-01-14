@@ -10,5 +10,13 @@ if __name__ == "__main__":
         q = ""
     else:
         q = argv[1]
-    post = requests.post(url, q)
-    print(post.text)
+    post = requests.post(url, data={'q': q})
+    try:
+        data = post.json()
+    except:
+        print("Not a valid JSON")
+    else:
+        if data.get("id") is None:
+            print("No result")
+        else:
+            print("[{}] {}".format(data.get("id"), data.get("name")))
