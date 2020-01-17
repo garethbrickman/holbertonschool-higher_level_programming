@@ -13,7 +13,7 @@ if __name__ == "__main__":
     for results in data.get("results"):
         print(results.get("name"))
 
-    if data.get("next") is not None:
+    while data.get("next") is not None:
         url = data.get("next")
         r = requests.get(url)
         data = r.json()
