@@ -1,20 +1,16 @@
 #!/usr/bin/node
 const args = process.argv;
-let copyArray = [];
-let compArray = [];
-let newArray = [];
 
 if (args.length < 4) {
   console.log(0);
 } else {
-  for (let i = 2; i < args.length; i++) {
-    copyArray += args[i];
-    compArray += args[i];
+  args.splice(0, 2);
+  const intArgs = args.map(Number);
+  const maxElement = Math.max(...intArgs);
+  const index = intArgs.indexOf(maxElement);
+
+  if (index > -1) {
+    intArgs.splice(index, 1);
   }
-  for (let i = 0; i < copyArray.length; i++) {
-    if (copyArray[i] > compArray[i + 1]) {
-      newArray += copyArray[i];
-    }
-  }
-  console.log(newArray[0]);
+  console.log(intArgs[0]);
 }
