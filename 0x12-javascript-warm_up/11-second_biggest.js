@@ -12,5 +12,5 @@ if (args.length < 4) {
   if (index > -1) {
     intArgs.splice(index, 1);
   }
-  console.log(intArgs[0]);
+  console.log(Math.max(...intArgs));
 }
