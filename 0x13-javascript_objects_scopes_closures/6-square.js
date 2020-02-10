@@ -3,7 +3,7 @@ const oldSquare = require('./5-square');
 class Square extends oldSquare {
   charPrint (c) {
     if (c !== undefined) {
-      const character = 'C';
+      const character = c;
       let print = '';
       for (let i = 0; i < this.height; i++) {
         print = '';
@@ -13,15 +13,7 @@ class Square extends oldSquare {
         console.log(print);
       }
     } else {
-      const character = 'X';
-      let print = '';
-      for (let i = 0; i < this.height; i++) {
-        print = '';
-        for (let j = 0; j < this.width; j++) {
-          print += character;
-        }
-        console.log(print);
-      }
+      this.print();
     }
   }
 }
