@@ -1,0 +1,1 @@
+This is a README for my 0x13-javascript_objects_scopes_closures project!
