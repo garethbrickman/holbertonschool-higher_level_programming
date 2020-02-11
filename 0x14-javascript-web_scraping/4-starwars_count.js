@@ -1,14 +1,28 @@
 #!/usr/bin/node
 const request = require('request');
-let URL = process.argv[2];
-const ID = 18;
-URL = 'http://swapi.co/api/people/' + ID;
+const URL = process.argv[2];
+const searchStr = 'https://swapi.co/api/people/18/';
+
+// Makes API request, will print error object if occurs
 
 request(URL, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
-    const filmList = JSON.parse(body).films;
-    console.log(filmList.length);
+    // Takes results and deserializes from JSON to js obj
+    // console.log(Object.prototype.toString.call(array)) to confirm obj type
+
+    const array = JSON.parse(body).results;
+
+    // iterate through nested arrays to run the search, count hits
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j < array[i].characters.length; j++) {
+        if (array[i].characters[j] === searchStr) {
+          count += 1;
+        }
+      }
+    }
+    console.log(count);
   }
 });
