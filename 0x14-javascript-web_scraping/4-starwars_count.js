@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const request = require('request');
 const URL = process.argv[2];
-const searchStr = 'https://swapi.co/api/people/18/';
+const searchStr = '/18/';
 
 // Makes API request, will print error object if occurs
 
@@ -18,7 +18,7 @@ request(URL, function (error, response, body) {
     let count = 0;
     for (let i = 0; i < array.length; i++) {
       for (let j = 0; j < array[i].characters.length; j++) {
-        if (array[i].characters[j] === searchStr) {
+        if (array[i].characters[j].indexOf(searchStr) >= 0) {
           count += 1;
         }
       }
