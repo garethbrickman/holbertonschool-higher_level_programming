@@ -12,6 +12,7 @@ request(URL, function (error, response, body) {
     // console.log(Object.prototype.toString.call(array)) to confirm obj type
 
     const array = JSON.parse(body).characters;
+    Object.freeze(array);
 
     // Use list of links to character pages to make new requests
     for (const characterURL of array) {
